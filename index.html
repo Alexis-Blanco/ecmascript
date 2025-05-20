@@ -1,130 +1,88 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía de ECMAScript</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guía de ECMAScript</title>
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
 </head>
 <body>
 
 <header>
-    <div class="logo">Guía de ECMAScript</div>
-    <div class="navbar">
-        <a href="#introduccion">Introducción</a>
-        <a href="#versiones">Versiones</a>
-        <a href="#diferencias">Diferencias</a>
-        <a href="#ejemplos">Ejemplos</a>
-    </div>
-     
+  <div class="logo">Guía de ECMAScript</div>
+  <div class="navbar">
+    <a href="#introduccion">Introducción</a>
+    <a href="#versiones">Versiones</a>
+    <a href="#diferencias">Diferencias</a>
+    <a href="#ejemplos">Ejemplos</a>
+  </div>
 </header>
 
 <main>
-    <section id="introduccion">
-        <h2 class="typewriter">¿Qué es ECMAScript?
-            <span class="cursor"></span>
-        </h2>
-        <script src="script.js"></script>
-        
-        <p>ECMAScript es un conjunto de reglas que dice cómo debe funcionar un lenguaje de programación. No es un lenguaje en sí, sino un estándar que lenguajes como JavaScript siguen para asegurarse de que todos hagan las mismas cosas de la misma manera.
+  <section id="introduccion">
+    <h2 class="typewriter">¿Qué es ECMAScript?<span class="cursor"></span></h2>
+    <p>
+      ECMAScript es el estándar que define cómo debe comportarse un lenguaje como JavaScript.
+      Fue creado para asegurar la compatibilidad entre diferentes implementaciones del lenguaje.
+      Actualizado por el comité TC39, incluye nuevas funciones, mejoras y correcciones regularmente.
+    </p>
+  </section>
 
-            Por ejemplo, si alguien crea un lenguaje basado en ECMAScript, como JavaScript, debe seguir esas reglas para que sea "compatible" y entienda cómo hacer las cosas.
-            
-            El grupo encargado de mantener estas reglas se llama Ecma TC39, y cada cierto tiempo actualizan el estándar para mejorar cosas, agregar nuevas funciones o arreglar problemas.
+  <section id="versiones">
+    <h2>Versiones de ECMAScript</h2>
+    <table class="versiones-table">
+      <thead>
+        <tr><th>Versión</th><th>Año</th><th>Novedades Clave</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>ES3</td><td>1999</td><td>Funciones básicas, manejo de errores</td></tr>
+        <tr><td>ES5</td><td>2009</td><td>"use strict", métodos de arrays, getters/setters</td></tr>
+        <tr><td>ES6</td><td>2015</td><td>let/const, clases, promesas, arrow functions</td></tr>
+        <tr><td>ES7</td><td>2016</td><td>includes(), operador exponencial (**)</td></tr>
+        <tr><td>ES8</td><td>2017</td><td>async/await, Object.entries/values</td></tr>
+        <tr><td>ES9</td><td>2018</td><td>Rest/Spread, mejoras de async</td></tr>
+        <tr><td>ES10</td><td>2019</td><td>flat(), trimStart/End(), Object.fromEntries()</td></tr>
+        <tr><td>ES11</td><td>2020</td><td>BigInt, nullish coalescing, matchAll()</td></tr>
+        <tr><td>ES12+</td><td>2021–2024</td><td>Operadores lógicos, mejoras de clase, performance</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-            El más famoso es JavaScript, pero también se utiliza en otros lenguajes como JScript y ActionScript.
-            
-            Entonces, cuando usas JavaScript, en realidad estás usando un lenguaje que sigue el estándar ECMAScript. ¡Es como un manual para hacer las cosas de forma ordenada!</p>
-    </section>
+  <section id="diferencias">
+    <h2>Diferencias Notorias Entre Versiones</h2>
+    <p>Estas versiones introdujeron diferencias clave:</p>
+    <ul>
+      <li><strong>ES5</strong>: Mejor estructura de código con modo estricto.</li>
+      <li><strong>ES6</strong>: Cambios modernos como `let`, clases, promesas.</li>
+      <li><strong>ES8</strong>: `async/await` simplificó el trabajo asíncrono.</li>
+      <li><strong>ES11</strong>: Introducción de BigInt y operador de encadenamiento opcional.</li>
+    </ul>
+  </section>
 
-    <section id="versiones">
-        <h2>Versiones de ECMAScript</h2>
-        <p>Desde su creación, ECMAScript ha evolucionado a través de diferentes versiones. Aquí te presentamos un resumen de las versiones más importantes:</p>
-        
-    </section>
+  <section id="ejemplos">
+    <h2>Ejemplos de Código por Versión</h2>
+    <label for="versionSelect"><strong>Selecciona una versión:</strong></label>
+    <select id="versionSelect">
+      <option value="es5">ES5</option>
+      <option value="es6">ES6</option>
+      <option value="es8">ES8</option>
+      <option value="es11">ES11</option>
+    </select>
 
-    <section id="diferencias">
-        <h2>Diferencias Notorias Entre Versiones</h2>
-        <p>A continuación se presentan algunas de las diferencias más destacadas entre las versiones de ECMAScript...</p>
-        <ul>
-            <li><strong>ES3 (1999)</strong>: Fue una actualización importante en su época. Estableció muchas de las bases que usamos en JavaScript hoy en día, como la manipulación de cadenas de texto, manejo de errores, y las funciones básicas.</li>
-            <li><strong>ES5 (2009)</strong>: Introdujo muchas características importantes que hicieron JavaScript más robusto y fácil de usar: </li><br>
-                <ul>
-                    <li>Modo estricto ("use strict") para evitar errores comunes.</li>
-            
-                    <li>Métodos nuevos para trabajar con arrays, como .forEach() y .map().</li>
-            
-                    <li>Introducción de getter y setter (funciones para acceder y modificar propiedades de objetos).</li>
-                </ul>
-            <li><strong>ES6 (2015) ¡La GRAN actualización!</strong>: Fue una de las actualizaciones más grandes de JavaScript. Introdujo muchas características nuevas, que hicieron el lenguaje más moderno y fácil de escribir. <br>
-                Algunas de las nuevas características incluyen:</li>
-                    <ul>
-                        <li>Let y const (para declarar variables).</li>
-                
-                        <li>Funciones flecha (=>).</li>
-                
-                        <li>Clases para trabajar con objetos de manera más estructurada.</li>
-                
-                        <li>Promesas para trabajar con operaciones asíncronas.</li>
-                
-                        <li>Desestructuración de objetos y arrays.</li>
-                    </ul>
-            <li><strong>ES7 (2016)</strong>: Fue una actualización pequeña pero útil: </li>
-                <ul>
-                    <li>Array.prototype.includes(): para verificar si un valor está dentro de un array.</li>
-            
-                    <li>Exponentiation operator (**): para hacer potencias más fácilmente.</li>
-                </ul>
-            <li><strong>ES8 (2017)</strong>: Introdujo algunas funcionalidades interesantes para mejorar la programación asíncrona y manipulación de strings:</li>
-                <ul>
-                    <li>Async/Await: para manejar promesas de manera más sencilla.</li>
-            
-                    <li>Object.values() y Object.entries(): para obtener valores y entradas de un objeto.</li>
-            
-                    <li>String padding: para agregar espacios o caracteres a la izquierda o derecha de una cadena.</li>
-                </ul>
-            <li><strong>ES9 (2018)</strong>: Introdujo características para mejorar el trabajo con arrays y objetos:</li>
-                <ul>
-                    <li>Spread operator: para expandir arrays o objetos.</li>
-            
-                    <li>Rest parameters: para obtener un número variable de parámetros en funciones.</li>
-                    
-                </ul>
-            <li><strong>ES10 (2019)</strong>: Mejoró el manejo de strings, arrays y objetos:</li>
-                <ul>
-                    <li>Array.prototype.flat() y Array.prototype.flatMap(): para aplanar arrays.</li>
-            
-                    <li>String.prototype.trimStart() y String.prototype.trimEnd(): para eliminar espacios al inicio o final de una cadena.</li>
-            
-                    <li>Opject.fromEntries(): para convertir un array de pares clave-valor en un objeto.</li>
-                </ul>
-            <li><strong>ES11 (2020)</strong>: Agregó funcionalidades útiles para trabajar con strings y arrays:</li>
-                <ul>
-                    <li>BigInt: para trabajar con números enteros grandes.</li>
-            
-                    <li>Array.prototype.flatMap(): para combinar <code>map()</code> y <code>flat()</code> en un solo paso.</li>
-            
-                    <li>String.prototype.matchAll(): para obtener todas las coincidencias de una expresión regular.</li>
-                </ul>
-            <li><strong>ES12 (2021) - ES13 (2022)</strong>: Estas versiones han seguido mejorando la eficiencia y agregando más pequeñas funcionalidades, pero la gran mayoría de los cambios han sido poco visibles para los programadores comunes. Sin embargo, cada nueva versión sigue mejorando la performance y seguridad del lenguaje.</li>
-        </ul>
-    </section>
-
-    <section id="ejemplos">
-        <h2>Ejemplos de Código por Versión</h2>
-        <p>Los siguientes ejemplos muestran las nuevas características que cada versión de ECMAScript ha traído al lenguaje:</p>
-        <pre><code>
-            // Ejemplo ES6 - Uso de let y const
-            let nombre = "Juan";
-            const edad = 30;
-        </code></pre>
-        <!-- Incluir ejemplos para cada versión -->
-    </section>
+    <div class="code-container">
+      <pre><code id="codeBlock" class="language-js">"use strict";
+var nombre = "Juan";
+console.log(nombre);</code></pre>
+    </div>
+  </section>
 </main>
 
 <footer>
-    <p>Alexis Blanco © 2025 Guía de ECMAScript. Todos los derechos reservados.</p>
+  <p>Alexis Blanco © 2025 Guía de ECMAScript. Todos los derechos reservados.</p>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="./assets/javascript/script.js"></script>
 </body>
 </html>
